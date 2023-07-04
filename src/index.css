@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+*{
+  box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+button, textarea {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
