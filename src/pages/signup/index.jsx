@@ -29,19 +29,17 @@ const Signup = () => {
     },
 });
 
-  const login = () => {
+  const signup = () => {
     if(info.account_id&&info.password) {
-      axios.post("/login", info)
+      axios.post("/users", info)
        .then((res) => {
-           console.log(res);
-           Toast.fire({
-               icon: "success",
-               title: "로그인에 성공하였습니다.",
-           });
-           setCookie("atk", res.data.access_token)
-           setCookie("rtk", res.data.access_token)
-           navigate("/map", {replace: true});
-           window.location.reload();
+          console.log(res);
+          setCookie("token", res.data.token);
+          navigate("/");
+          Toast.fire({
+            icon: "success",
+            title: "회원가입에 성공하였습니다.",
+          });
        })
        .catch((err) => {
            if(err.response){
@@ -51,7 +49,7 @@ const Signup = () => {
            }
            Toast.fire({
                icon: "error",
-               title: "관리자 로그인에 실패하였습니다.",
+               title: "회원가입 로그인에 실패하였습니다.",
            });
        })
     }
@@ -79,8 +77,8 @@ const Signup = () => {
           </div>
         </S.InputDiv>
         <S.ButtonDiv>
-          <S.Button onClick={()=>navigate("/login")} bgColor={"#767CFF"} color={"#FFFFFF"}>로그인</S.Button>
-          <S.Button bgColor={"#545454"} color={"white"}>회원가입</S.Button>
+          <S.Button onClick={()=>signup()} bgColor={"#767CFF"} color={"white"}>회원가입</S.Button>
+          <S.Button onClick={()=>navigate("/login")} bgColor={"#545454"} color={"#FFFFFF"}>로그인</S.Button>
         </S.ButtonDiv>
       </S.Form>
       <S.BackgroundImg src={I3} width={"438px"} left={"48px"}/>

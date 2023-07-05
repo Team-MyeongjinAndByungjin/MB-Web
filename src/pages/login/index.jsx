@@ -27,32 +27,26 @@ const Login = () => {
         toast.addEventListener("mouseenter", Swal.stopTimer);
         toast.addEventListener("mouseleave", Swal.resumeTimer);
     },
-});
+  });
 
   const login = () => {
     if(info.account_id&&info.password) {
-      axios.post("/login", info)
+      axios.post("/users/token", info)
        .then((res) => {
-           console.log(res);
-           Toast.fire({
-               icon: "success",
-               title: "로그인에 성공하였습니다.",
-           });
-           setCookie("atk", res.data.access_token)
-           setCookie("rtk", res.data.access_token)
-           navigate("/map", {replace: true});
-           window.location.reload();
+          setCookie("token", res.data.token)
+          setCookie("id", info.account_id)
+          navigate("/");
+          console.log(res);
+          Toast.fire({
+              icon: "success",
+              title: "로그인에 성공하였습니다.",
+          });
        })
        .catch((err) => {
-           if(err.response){
-               console.log(err.response.data);
-               console.log(err.response.status);
-               console.log(err.response.header);
-           }
-           Toast.fire({
-               icon: "error",
-               title: "관리자 로그인에 실패하였습니다.",
-           });
+          Toast.fire({
+              icon: "error",
+              title: "로그인에 실패하였습니다.",
+          });
        })
     }
   }
@@ -79,7 +73,7 @@ const Login = () => {
           </div>
         </S.InputDiv>
         <S.ButtonDiv>
-          <S.Button onClick={()=>login()} bgColor={info.account_id&&info.password ? "#767CFF" : "#5B60C3"} color={info.account_id&&info.password ? "white" : "#DEDEDE"}>로그인</S.Button>
+          <S.Button onClick={()=>login()} bgColor={"#767CFF"} color={"white"}>로그인</S.Button>
           <S.Button onClick={()=>navigate("/signup")} bgColor={"#545454"} color={"white"}>회원가입</S.Button>
         </S.ButtonDiv>
       </S.Form>

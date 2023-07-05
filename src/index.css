@@ -22,3 +22,7 @@ button, textarea {
   outline: 0;
   cursor: pointer;
 }
+
+img {
+  object-fit: cover;
+}

@@ -51,7 +51,7 @@ export const InputDiv = styled.div`
 `
 
 export const ButtonDiv = styled.div`
-  margin-top: 100px;
+  margin-top: 90px;
   display: flex;
   flex-direction: column;
 `

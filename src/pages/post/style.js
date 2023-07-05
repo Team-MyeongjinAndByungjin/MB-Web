@@ -6,7 +6,8 @@ export const Body = styled.div`
 
 export const Div = styled.div`
   background-color: white;
-  margin: 0px 250px;
+  width: 1000px;
+  margin: 0px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,13 +17,14 @@ export const Div = styled.div`
 export const ContentDiv = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `
 
 export const Title = styled.h1`
   font-size: 30px;
   letter-spacing: 0.5px;
   margin: 40px 0;
-  width: 477px;
+  width: 453px;
 `
 
 export const InputDiv = styled.div`
@@ -44,11 +46,6 @@ export const InputDiv = styled.div`
     height: 45px;
     background-color: #F6F6F6;
     padding: 8px 16px;
-    span{
-      font-size: 14px;
-      font-weight: 400;
-      color: #A1A1A1;
-    }
   }
   input {
     font-size: 14px;
@@ -68,26 +65,36 @@ export const ImageDiv = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  width: 453px;
   span{
     font-weight: bold;
     font-size: 14px;
     margin-bottom: 5px;
     color: #333;
   }
-  div{
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #F6F6F6;
-    width: 150px;
-    height: 150px;
-    border-radius: 12px;
-  }
   input{
     visibility: hidden;
     position: absolute;
   }
+`
+
+export const InputImage = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F6F6F6;
+  width: 150px;
+  height: 150px;
+  border-radius: 12px;
+`
+
+export const Image = styled.img`
+  cursor: pointer;
+  background-color: #F6F6F6;
+  width: 150px;
+  height: 150px;
+  border-radius: 12px;
 `
 
 export const ButtonDiv = styled.div`
